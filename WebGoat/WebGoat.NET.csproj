@@ -985,6 +985,12 @@
     <Folder Include="DB_Scripts\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="SecurityCodeScan" Version="3.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="WebGoatCoins\ProductDetails.aspx" />
     <Content Include="WebGoatCoins\Web.config" />
     <None Include="Downloads\authentication.pdf" />
