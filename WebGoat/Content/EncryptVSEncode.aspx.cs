@@ -86,8 +86,10 @@ namespace OWASP.WebGoat.NET
     	private string SHA(string s, WG_Hash hash)
     	{
     		byte[] bytes = System.Text.ASCIIEncoding.ASCII.GetBytes(s);
-			byte[] result;
-            HashAlgorithm sha;
+		byte[] result;
+	    
+	    	// assign "sha" to avoid "error CS0165: Use of unassigned local variable 'sha'"
+            	HashAlgorithm sha = new SHA1Managed();
 			switch(hash){
 				case WG_Hash.Sha1:
 					sha = new SHA1Managed();
@@ -96,8 +98,8 @@ namespace OWASP.WebGoat.NET
 					sha = new SHA256Managed();
 					break;
 			}
-			result = sha.ComputeHash(bytes);
-			return System.Convert.ToBase64String(result);
+		result = sha.ComputeHash(bytes);
+		return System.Convert.ToBase64String(result);
     	}
 
         private string Encypt(string s, string key)
